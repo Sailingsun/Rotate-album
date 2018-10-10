@@ -6,6 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        background-color: #faebd7;
+    }
     .stage {
         perspective: 800px;
         -webkit-perspective: 800px;
@@ -22,7 +29,6 @@
         width: 128px;
         height: 100px;
         margin-top: 100px;
-        border: 1px solid #faebd7;
         position: absolute;
         left: calc(50% - 64px);
     }
@@ -38,13 +44,21 @@
     </style>
     <script>
         let temp = 0;
-        requestAnimationFrame(function fn() {
-            temp -= 40;
-            document.getElementById('picCan').style.transform = 'rotateY(' + temp + 'deg)';
-            // setInterval(function(){
-            requestAnimationFrame(fn);
-            // },400);
-        });
+        let currentTime = Date.now();
+        setInterval(() => {
+            requestAnimationFrame(function fn() {
+                if (Date.now() - currentTime >= 497) {
+                    temp -= 40;
+                    document.getElementById('picCan').style.transform = 'rotateY(' + temp + 'deg)';
+                    requestAnimationFrame(fn);
+                    currentTime = Date.now();
+                }
+            });
+        }, 0);
+        // setInterval(() => {
+        //     temp -= 40;
+        //     document.getElementById('picCan').style.transform = 'rotateY(' + temp + 'deg)';
+        // }, 497);
     </script>
 </head>
 <body>
