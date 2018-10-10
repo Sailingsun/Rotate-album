@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .stage {
+        perspective: 800px;
+        -webkit-perspective: 800px;
+        position: relative;
+    }
+    .piece {
+        position: absolute;
+        width: 128px;
+    }
+    .container {
+        transition: transform 1s;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        width: 128px;
+        height: 100px;
+        margin-top: 100px;
+        border: 1px solid #faebd7;
+        position: absolute;
+        left: calc(50% - 64px);
+    }
+    img:nth-child(1) { transform: rotateY(0deg) translateZ(195.839px) !important; }
+    img:nth-child(2) { transform: rotateY(  40deg ) translateZ(195.839px) !important; }
+    img:nth-child(3) { transform: rotateY(  80deg ) translateZ(195.839px) !important; }
+    img:nth-child(4) { transform: rotateY( 120deg ) translateZ(195.839px) !important; }
+    img:nth-child(5) { transform: rotateY( 160deg ) translateZ(195.839px) !important; }
+    img:nth-child(6) { transform: rotateY( 200deg ) translateZ(195.839px) !important; }
+    img:nth-child(7) { transform: rotateY( 240deg ) translateZ(195.839px) !important; }
+    img:nth-child(8) { transform: rotateY( 280deg ) translateZ(195.839px) !important; }
+    img:nth-child(9) { transform: rotateY( 320deg ) translateZ(195.839px) !important; }
+    </style>
+    <script>
+        let temp = 0;
+        requestAnimationFrame(function fn() {
+            temp -= 40;
+            document.getElementById('picCan').style.transform = 'rotateY(' + temp + 'deg)';
+            // setInterval(function(){
+            requestAnimationFrame(fn);
+            // },400);
+        });
+    </script>
+</head>
+<body>
+    <div class="stage">
+        <div class="container" id="picCan">
+            <img src="mm1.jpg" class="piece">
+            <img src="mm3.jpg" class="piece">
+            <img src="mm4.jpg" class="piece">
+            <img src="mm6.jpg" class="piece">
+            <img src="mm7.jpg" class="piece">
+            <img src="mm8.jpg" class="piece">
+            <img src="mm10.jpg" class="piece">
+            <img src="mm13.jpg" class="piece">
+            <img src="mm15.jpg" class="piece">
+        </div>
+    </div>
+</body>
+</html>
